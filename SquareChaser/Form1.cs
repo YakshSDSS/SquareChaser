@@ -61,37 +61,70 @@ namespace SquareChaser
 
         private void gameTimer_Tick(object sender, EventArgs e)
         {
+            //Remove boundaries so when players go out of screen they come out from the other side.
+            if (player1.Y < 0)
+            {
+                player1.Y = player1.Y + this.Height;
+            }
+            if (player1.Y > this.Height - player1.Height)
+            {
+                player1.Y = player1.Y - this.Height;
+            }
+            if (player1.X < 0)
+            {
+                player1.X = player1.X + this.Width;
+            }
+            if (player1.X > this.Width - player1.Width)
+            {
+                player1.X = player1.X - this.Width;
+            }
+            if (player2.Y < 0)
+            {
+                player2.Y = player2.Y + this.Height;
+            }
+            if (player2.Y > this.Height - player2.Height)
+            {
+                player2.Y = player2.Y - this.Height;
+            }
+            if (player2.X < 0)
+            {
+                player2.X = player2.X + this.Width;
+            }
+            if (player2.X > this.Width - player2.Width)
+            {
+                player2.X = player2.X - this.Width;
+            }
             //Move player 1.
-            if (wPressed == true && player1.Y > 0)
+            if (wPressed == true)
             {
                 player1.Y = player1.Y - player1Speed;
             }
-            if (aPressed == true && player1.X > 0)
+            if (aPressed == true)
             {
                 player1.X = player1.X - player1Speed;
             }
-            if (sPressed == true && player1.Y < this.Height - player1.Height)
+            if (sPressed == true)
             {
                 player1.Y = player1.Y + player1Speed;
             }
-            if (dPressed == true && player1.X < this.Width - player1.Width)
+            if (dPressed == true)
             {
                 player1.X = player1.X + player1Speed;
             }
             //Move player 2.
-            if (upPressed == true && player2.Y > 0)
+            if (upPressed == true)
             {
                 player2.Y = player2.Y - player2Speed;
             }
-            if (leftPressed == true && player2.X > 0)
+            if (leftPressed == true)
             {
                 player2.X = player2.X - player2Speed;
             }
-            if (downPressed == true && player2.Y < this.Height - player1.Height)
+            if (downPressed == true)
             {
                 player2.Y = player2.Y + player2Speed;
             }
-            if (rightPressed == true && player2.X < this.Width - player2.Width)
+            if (rightPressed == true)
             {
                 player2.X = player2.X + player2Speed;
             }
